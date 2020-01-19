@@ -7,10 +7,12 @@ class Board {
     List<Piece> pieces = new ArrayList<>();
     int x;
     int y;
+    String[][] board;
 
     public Board(int y, int x) {
         this.y = y;
         this.x = x;
+        board = new String[this.y][this.x];
     }
 
     public void setBoard() {
@@ -33,7 +35,7 @@ class Board {
     }
 
     public void showBoard() {
-        String[][] board = new String[y][x];
+        //String[][] board = new String[y][x];
         for(Piece piece : pieces) {
             int[] piece_pos = piece.getPosition();
             String piece_status = piece.getPieceColor();
