@@ -14,9 +14,9 @@ public class Main {
         board.setBoard();
         board.showBoard();
         while (true) {
-            if (p.piece.getPieceColor() == "●") {
+            if (p.piece.getPieceColor().equals("●")) {
                 System.out.println("白のターンです。");
-            } else if (p.piece.getPieceColor() == "◯") {
+            } else {
                 System.out.println("黒のターンです。");
             }
 
@@ -44,10 +44,9 @@ public class Main {
             board.showBoard();
 
             if (master.judge(p.piece.getPieceColor())) {
-                if (p.piece.getPieceColor() == "●") {
+                if (p.piece.getPieceColor().equals("●")) {
                     System.out.println("白の勝ちです。");
-                }
-                if (p.piece.getPieceColor() == "◯") {
+                } else {
                     System.out.println("黒の勝ちです。");
                 }
                 break;
@@ -55,7 +54,8 @@ public class Main {
 
             if (p == wp) {
                 p = bp;
-            } else {
+            }
+            else {
                 p = wp;
             }
         }
