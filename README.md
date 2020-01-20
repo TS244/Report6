@@ -4,4 +4,3 @@
 
 # DEMO
 
-![demo](/Users/e185428/prog2_report6.gif)
