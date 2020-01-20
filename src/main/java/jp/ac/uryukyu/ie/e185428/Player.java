@@ -10,12 +10,7 @@ class Player {
     }
 
     public void putPiece(int x, int y) {
-        if (!(x > board.x || y > board.y)) {
-            Piece piece = board.getPiece(x, y);
-            piece.setPieceColor(this.piece_color);
-        } else {
-            System.out.println("その位置には置けません。");
-        }
+        board.board[y][x].setPieceColor(this.piece_color);
     }
 
 }

@@ -19,6 +19,7 @@ public class Main {
             } else if (p.piece_color == "◯") {
                 System.out.println("黒のターンです。");
             }
+            
             System.out.println("石を置く場所を指定してください。");
             System.out.println("x座標");
             Scanner scan_x = new Scanner(System.in);
@@ -26,14 +27,17 @@ public class Main {
             System.out.println("y座標");
             Scanner scan_y = new Scanner(System.in);
             int y = Integer.parseInt(scan_y.next());
-            if(board.alreadyPut(x, y)){
+
+            if(board.checkCanPut(x, y)){
+                p.putPiece(x, y);
+            }
+            else {
                 System.out.println("その位置には置けません");
                 continue;
-            } else {
-                p.putPiece(x, y);
             }
 
             board.showBoard();
+
             if (master.judge(p.piece_color)) {
                 if (p.piece_color == "●") {
                     System.out.println("白の勝ちです。");
@@ -43,6 +47,7 @@ public class Main {
                 }
                 break;
             }
+
             if (p == wp) {
                 p = bp;
             } else {

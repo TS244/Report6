@@ -1,63 +1,46 @@
 package jp.ac.uryukyu.ie.e185428;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Board {
-    List<Piece> pieces = new ArrayList<>();
     int x;
     int y;
-    String[][] board;
+    Piece[][] board;
 
     public Board(int y, int x) {
         this.y = y;
         this.x = x;
-        board = new String[this.y][this.x];
+        board = new Piece[this.y][this.x];
     }
 
     public void setBoard() {
         for(int y=0; y<this.y; y++) {
             for(int x=0; x<this.x; x++) {
-                Piece piece = new Piece(x, y);
-                this.pieces.add(piece);
+                board[y][x] = new Piece();
             }
         }
-    }
-
-    public Piece getPiece(int x, int y) {
-        for (Piece piece : pieces) {
-            int[] piece_pos = piece.getPosition();
-            if (piece_pos[0] == x && piece_pos[1] == y) {
-                return piece;
-            }
-        }
-        return null;
     }
 
     public void showBoard() {
-        for(Piece piece : pieces) {
-            int[] piece_pos = piece.getPosition();
-            String piece_status = piece.getPieceColor();
-            board[piece_pos[1]][piece_pos[0]] = piece_status;
+        String x_coordinate = "   ";
+        for(int x=0; x<board[0].length; x++) {
+            x_coordinate += x + "  ";
         }
+        System.out.println(x_coordinate);
 
         for(int y=0; y<board.length; y++) {
-            String board_status = "";
+            String board_status = y + "  ";
             for(int x=0; x<board[0].length; x++) {
-                board_status += board[y][x] + "  ";
+                board_status += board[y][x].getPieceColor() + "  ";
             }
+
             System.out.println(board_status);
         }
     }
 
-    public boolean alreadyPut(int x, int y) {
-        Piece piece = getPiece(x, y);
-        if(piece.getPieceColor() != "*") {
-            return true;
+    public boolean checkCanPut(int x, int y) {
+        if(!(x>this.x || y>this.y) && board[y][x].getPieceColor() == "*") {
+           return true;
         }
         return false;
     }
-
-
 
 }
