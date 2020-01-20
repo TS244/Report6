@@ -19,20 +19,25 @@ public class Main {
             } else if (p.piece_color == "◯") {
                 System.out.println("黒のターンです。");
             }
-            
-            System.out.println("石を置く場所を指定してください。");
-            System.out.println("x座標");
-            Scanner scan_x = new Scanner(System.in);
-            int x = Integer.parseInt(scan_x.next());
-            System.out.println("y座標");
-            Scanner scan_y = new Scanner(System.in);
-            int y = Integer.parseInt(scan_y.next());
 
-            if(board.checkCanPut(x, y)){
-                p.putPiece(x, y);
-            }
-            else {
-                System.out.println("その位置には置けません");
+            try {
+                System.out.println("石を置く場所を指定してください。");
+                System.out.println("x座標");
+                Scanner scan_x = new Scanner(System.in);
+                int x = Integer.parseInt(scan_x.next());
+                System.out.println("y座標");
+                Scanner scan_y = new Scanner(System.in);
+                int y = Integer.parseInt(scan_y.next());
+
+                if(board.checkCanPut(x, y)){
+                    p.putPiece(x, y);
+                }
+                else {
+                    System.out.println("その位置には置けません");
+                    continue;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("数値以外の値は入力できません。\n");
                 continue;
             }
 
