@@ -4,8 +4,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * GameMasterクラスのユニットテスト
+ */
 public class GameMasterTest {
-
+    /**
+     * fiveLineメソッドのテスト
+     */
     @Test
     public void fiveLine() {
         int x = 0;
@@ -15,7 +20,7 @@ public class GameMasterTest {
         int n = 1;
 
         Board board = new Board(8, 8);
-        Player p = new Player("◯", board);
+        Player p = new Player(new Piece("○"), board);
         board.setBoard();
         p.putPiece(0, 0);
         p.putPiece(0, 1);
@@ -26,7 +31,7 @@ public class GameMasterTest {
 
         for(int i=1; i<5; i++) {
             if ((0 <= (x + (vector_x * i)) && (x + (vector_x * i)) <= board.x) && (0 <= (y + (vector_y * i)) && (y + (vector_y * i)) <= board.y)) {
-                if(board.board[y+(vector_y*i)][x+(vector_x*i)].getPieceColor() == p.piece_color) n += 1;
+                if(board.board[y+(vector_y*i)][x+(vector_x*i)].getPieceColor() == p.piece.getPieceColor()) n += 1;
                 else break;
             }
             else {
