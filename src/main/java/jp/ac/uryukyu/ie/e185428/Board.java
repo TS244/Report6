@@ -35,7 +35,6 @@ class Board {
     }
 
     public void showBoard() {
-        //String[][] board = new String[y][x];
         for(Piece piece : pieces) {
             int[] piece_pos = piece.getPosition();
             String piece_status = piece.getPieceColor();

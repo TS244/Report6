@@ -9,7 +9,7 @@ public class Main {
         Player bp = new Player("◯", board);
         GameMaster master = new GameMaster(board);
         Player p;
-        p = wp;
+        p = bp;
 
         board.setBoard();
         board.showBoard();
@@ -51,6 +51,7 @@ public class Main {
         }
 
     }
+
 
 }
 
