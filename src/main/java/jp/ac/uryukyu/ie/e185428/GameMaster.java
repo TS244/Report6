@@ -2,19 +2,18 @@ package jp.ac.uryukyu.ie.e185428;
 
 class GameMaster {
     Board board;
-    Player wp;
-    Player bp;
-    GameMaster(Board board, Player wp, Player bp) {
+    int n;
+//    Player wp;
+//    Player bp;
+    GameMaster(Board board) {
         this.board = board;
-        this.wp = wp;
-        this.bp = bp;
+        this.n = 1;
+//        this.wp = wp;
+//        this.bp = bp;
     }
 
     public boolean judge(String piece_color) {
         int[] n = new int[4];
-        int vector_x;
-        int vector_y;
-
 
         for(Piece piece : board.pieces) {
             if(piece.getPieceColor() == piece_color) {
@@ -32,11 +31,11 @@ class GameMaster {
         return false;
     }
 
-    public int fiveLine(int x, int y, int vector_x, int vector_y, String piece_color) {
-        int n = 1;
 
+
+    public int fiveLine(int x, int y, int vector_x, int vector_y, String piece_color) {
         for(int i=1; i<5; i++) {
-            if((0 < (x + (vector_x * i)) && (x + (vector_x * i))< board.x) && (0 < (y + (vector_y * i)) && (y + (vector_y * i))< board.y)) {
+            if((0 <= (x + (vector_x * i)) && (x + (vector_x * i)) <= board.x) && (0 <= (y + (vector_y * i)) && (y + (vector_y * i)) <= board.y)) {
                 if(board.board[y + (vector_y * i)][x + (vector_x * i)] == piece_color) { n += 1; }
                 else { break; }
             } else {
@@ -44,8 +43,8 @@ class GameMaster {
             }
         }
         for(int i=1; i<5; i++) {
-            if((0 < (x - (vector_x * i)) && (x - (vector_x * i))< board.x) && (0 < (y - (vector_y * i)) && (y - (vector_y * i))< board.y)) {
-                if(board.board[y - (vector_y * i)][x - (vector_x * i)] == piece_color) { n += 1; }
+            if((0 <= (x - (vector_x * i)) && (x - (vector_x * i)) <= board.x) && (0 <= (y - (vector_y * i)) && (y - (vector_y * i)) <= board.y)) {
+                if(board.board[y + (-1 * vector_y * i)][x + (-1 * vector_x * i)] == piece_color) { n += 1; }
                 else { break; }
             } else {
                 break ;

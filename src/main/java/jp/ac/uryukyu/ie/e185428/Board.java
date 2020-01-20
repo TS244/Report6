@@ -51,6 +51,14 @@ class Board {
         }
     }
 
+    public boolean alreadyPut(int x, int y) {
+        Piece piece = getPiece(x, y);
+        if(piece.getPieceColor() != "*") {
+            return true;
+        }
+        return false;
+    }
+
 
 
 }
