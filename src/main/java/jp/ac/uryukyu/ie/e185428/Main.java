@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String args[]) {
         Board board = new Board(8, 8);
-        Player wp = new Player("●", board);
-        Player bp = new Player("◯", board);
+        Player wp = new Player(new Piece("●"), board);
+        Player bp = new Player(new Piece("○"), board);
         GameMaster master = new GameMaster(board);
         Player p;
         p = bp;
@@ -14,9 +14,9 @@ public class Main {
         board.setBoard();
         board.showBoard();
         while (true) {
-            if (p.piece_color == "●") {
+            if (p.piece.getPieceColor() == "●") {
                 System.out.println("白のターンです。");
-            } else if (p.piece_color == "◯") {
+            } else if (p.piece.getPieceColor() == "◯") {
                 System.out.println("黒のターンです。");
             }
 
@@ -33,21 +33,21 @@ public class Main {
                     p.putPiece(x, y);
                 }
                 else {
-                    System.out.println("その位置には置けません");
+                    System.out.println("\nすでに置かれているか、囲碁盤の範囲外です。\n");
                     continue;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("数値以外の値は入力できません。\n");
+                System.out.println("\n数値以外の値は入力できません。\n");
                 continue;
             }
 
             board.showBoard();
 
-            if (master.judge(p.piece_color)) {
-                if (p.piece_color == "●") {
+            if (master.judge(p.piece.getPieceColor())) {
+                if (p.piece.getPieceColor() == "●") {
                     System.out.println("白の勝ちです。");
                 }
-                if (p.piece_color == "◯") {
+                if (p.piece.getPieceColor() == "◯") {
                     System.out.println("黒の勝ちです。");
                 }
                 break;
