@@ -2,18 +2,14 @@ package jp.ac.uryukyu.ie.e185428;
 
 /**
  * 五目並べで使う囲碁盤のクラス
- *
- * int x //囲碁盤の横幅
- * int y //囲碁盤の縦幅
- * Piece[][] board //囲碁盤に置かれている石の情報
  */
-class Board {
+public class Board {
     int x;
     int y;
     Piece[][] board;
 
     /**
-     *
+     * 囲碁盤クラスのコンストラクタ
      * @param y 囲碁盤の縦幅
      * @param x 囲碁盤の横幅
      */
@@ -29,7 +25,7 @@ class Board {
     public void setBoard() {
         for (int y = 0; y < this.y; y++) {
             for (int x = 0; x < this.x; x++) {
-                board[y][x] = new Piece();
+                board[y][x] = new Piece("*");
             }
         }
     }

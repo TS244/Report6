@@ -2,18 +2,16 @@ package jp.ac.uryukyu.ie.e185428;
 
 /**
  * 石の状態を表すPieceクラス
- *
- * String piece_status //石の状態(黒か白か、何も置かれてないか)
  */
-class Piece {
+public class Piece {
     private String piece_status;
 
     /**
-     * コンストラクタ
-     * "*"は石が置かれていない状態
+     * Pieceクラスのコンストラクタ
+     * @param piece_color 石の色(黒か白か、何も置かれてないか)
      */
-    public Piece() {
-        this.piece_status = "*";
+    public Piece(String piece_color) {
+        this.piece_status = piece_color;
     }
 
     /**

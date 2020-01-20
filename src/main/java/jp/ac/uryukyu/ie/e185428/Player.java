@@ -2,17 +2,18 @@ package jp.ac.uryukyu.ie.e185428;
 
 /**
  * 五目並べを行うプレーヤーのクラス
- * 指定した場所に石を置くことができる
- *
- * Board board; //囲碁盤の情報
- * String piece_color; //プレイヤーの石の色
  */
-class Player {
+public class Player {
     Board board;
-    String piece_color;
+    Piece piece;
 
-    public Player(String piece_color, Board board) {
-        this.piece_color = piece_color;
+    /**
+     * Playerクラスのコンストラクタ
+     * @param piece 使用する石
+     * @param board 使用する囲碁盤
+     */
+    public Player(Piece piece, Board board) {
+        this.piece = piece;
         this.board = board;
     }
 
@@ -22,7 +23,7 @@ class Player {
      * @param y  囲碁盤のy座標
      */
     public void putPiece(int x, int y) {
-        board.board[y][x].setPieceColor(this.piece_color);
+        board.board[y][x].setPieceColor(this.piece.getPieceColor());
     }
 
 }
