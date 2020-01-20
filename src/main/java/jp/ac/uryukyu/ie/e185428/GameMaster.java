@@ -1,12 +1,27 @@
 package jp.ac.uryukyu.ie.e185428;
 
+/**
+ * 五目並べの勝敗を判定するクラス
+ *
+ * Board board //囲碁盤の情報
+ */
 class GameMaster {
     Board board;
 
-    GameMaster(Board board) {
+    /**
+     * コンストラクタ
+     * @param board 使用している囲碁盤の情報
+     */
+    public GameMaster(Board board) {
         this.board = board;
     }
 
+    /**
+     * 勝敗を判定するメソッド
+     * 同じ色の石が５個並んでいるか調査する
+     * @param piece_color 調査したい石の色
+     * @return 同じ色の石が５個並んでいればtrue,そうでなければfalse
+     */
     public boolean judge(String piece_color) {
         int[] n = new int[4];
 
@@ -26,7 +41,16 @@ class GameMaster {
         return false;
     }
 
-
+    /**
+     * 同じ色の石が何個並んでいるか調査するメソッド
+     * 方向を指定して調査する(縦、横、斜めの４方向)
+     * @param x 調査する位置のx座標
+     * @param y 調査する位置のy座標
+     * @param vector_x 調査したい方向のx座標
+     * @param vector_y 調査したい方向のy座標
+     * @param piece_color
+     * @return 同じ石が並んでいる個数を返す
+     */
     public int fiveLine(int x, int y, int vector_x, int vector_y, String piece_color) {
         int n = 1;
 
