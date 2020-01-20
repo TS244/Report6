@@ -73,4 +73,17 @@ public class GameMaster {
         }
         return n;
     }
+
+    public boolean isDraw() {
+        int n = 0;
+        for(int y=0; y<board.y; y++) {
+            for(int x=0; x<board.x; x++) {
+                if(board.board[y][x].getPieceColor() != "*") {
+                    n += 1;
+                }
+            }
+        }
+        if(n == (board.y * board.x)) return true;
+        return false;
+    }
 }

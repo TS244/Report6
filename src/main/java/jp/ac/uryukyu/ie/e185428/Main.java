@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]) {
-        Board board = new Board(8, 8);
+        Board board = new Board(5, 5);
         Player wp = new Player(new Piece("●"), board);
         Player bp = new Player(new Piece("○"), board);
         GameMaster master = new GameMaster(board);
@@ -49,6 +49,11 @@ public class Main {
                 } else {
                     System.out.println("黒の勝ちです。");
                 }
+                break;
+            }
+
+            if(master.isDraw()) {
+                System.out.println("引き分けです。");
                 break;
             }
 
