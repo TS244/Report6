@@ -5,7 +5,7 @@ package jp.ac.uryukyu.ie.e185428;
  *
  * int x //囲碁盤の横幅
  * int y //囲碁盤の縦幅
- * Piece[][] board //各々の石の状態を表す
+ * Piece[][] board //囲碁盤に置かれている石の情報
  */
 class Board {
     int x;
