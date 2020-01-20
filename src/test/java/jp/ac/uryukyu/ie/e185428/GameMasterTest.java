@@ -1,13 +1,13 @@
 package jp.ac.uryukyu.ie.e185428;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class GameMasterTest {
+public class GameMasterTest {
 
     @Test
-    void fiveLine() {
+    public void fiveLine() {
         int x = 0;
         int y = 0;
         int vector_x = 0;
